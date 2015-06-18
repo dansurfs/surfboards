@@ -1,0 +1,46 @@
+<head>
+    <title>Leaderboard</title>
+   
+</head>
+<body>
+    <h1>Upload My Surfboard</h1>
+    {{> leaderboard}}
+ 
+    {{> addPlayerForm}}
+      {{> dropzone url='http://localhost:3000/uploads' id='dropzoneDiv'}}
+    
+
+</body>
+<template name="leaderboard">
+    Post my board!
+</template>
+<template name="addPlayerForm">
+     <form>
+        <input type="text" name="brandName" placeholder="Brand Name">
+         <input type="text" name="modelName" placeholder="Model Name">
+         <input type="text" name="height" placeholder="Height">
+         <input type="text" name="width" placeholder="Width">
+         <input type="text" name="thickness" placeholder="Thickness">
+         <input type="text" name="boardType" placeholder="Board Type">
+         <input type="text" name="tailType" placeholder="Tail Type">
+         <input type="text" name="finSetup" placeholder="Fin Set-up">
+         <input type="text" name="finSystem" placeholder="Fin System">
+         <input type="text" name="location" placeholder="Location">
+         <input type="text" name="email" placeholder="Email">
+         <input type="text" name="phone" placeholder="Phone">
+        <input type="submit" value="Add Board">
+    </form>
+ 
+    </template>
+     
+
+ <template name="whynot">
+    
+       <form action="http://localhost:3000/uploads" class="dropzone" method="post" enctype= multipart/form-data id="DropzoneDiv"> 
+     
+                   
+    </form>
+</template>
+
+       
+   
