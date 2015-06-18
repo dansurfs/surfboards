@@ -1,13 +1,9 @@
 PlayersList = new Mongo.Collection('players');
 
-Template.leaderboard.helpers({
-  'player': function(){
-    return PlayersList.find()
-  }
-});
-
 Template.addPlayerForm.events({
   'submit form': function(e,t){
+
+    dropzone.processQueue();
 
    event.preventDefault();
    var brandNameVar = event.target.brandName.value;
@@ -40,40 +36,28 @@ Template.addPlayerForm.events({
  }
 });
 
-Template.dropzone.events({
-  'change .myFileInput': function(event, template) {
-    var files = event.target.files;
-    for (var i = 0, ln = files.length; i < ln; i++) {
-      Images.insert(files[i], function (err, fileObj) {
-        console.log("Inserted file");
-      });
-    }
-  }
-}); 
-
 
 Template.imageUpload.onRendered(function(){
 
-    var arrayOfImageIds = [];
+  var arrayOfImageIds = [];
 
-    Dropzone.autoDiscover = false;
+  Dropzone.options.autoDiscover = false;
+  Dropzone.options.autoProcessQueue = false;
 
-    // Adds file uploading and adds the imageID of the file uploaded
-    // to the arrayOfImageIds object.
-    var dropzone = new Dropzone("form#dropzone", {
-        accept: function(file, done){
-            Images.insert(file, function(err, file){
-                if(err){
-                  alert("Error");
-                } else {
-                  // gets the ID of the image that was uploaded
-                  var imageId = file._id;
-                  // do something with this image ID, like save it somewhere
-                  arrayOfImageIds.push(imageId);
-                  done();
-                };
-            });
-        }
-    });
+  dropzone = new Dropzone("form#dropzone", {
+    autoDiscover: false,
+    autoProcessQueue: false,
+    accept: function(file, done){
+      Images.insert(file, function(err, file){
+        if(err){
+          alert("Error");
+        } else {
+          var imageId = file._id;
+          arrayOfImageIds.push(imageId);
+          done();
+        };
+      });
+    }
+  });
 
 });

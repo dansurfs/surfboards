@@ -1,20 +1,14 @@
 <head>
-    <title>Leaderboard</title>
+  <title>Leaderboard</title>
 </head>
 <body>
-    <h1>Upload My Surfboard</h1>
-    {{> leaderboard}}
-    {{> addPlayerForm}}
-    
-    {{>imageUpload}}
+  <h1>Upload My Surfboard</h1>
+  {{> addPlayerForm}}
+  {{> imageUpload}}
 </body>
 
-<template name="leaderboard">
-    Post my board!
-</template>
-
 <template name="addPlayerForm">
-   <form>
+  <form>
     <input type="text" name="brandName" placeholder="Brand Name">
     <input type="text" name="modelName" placeholder="Model Name">
     <input type="text" name="height" placeholder="Height">
@@ -28,7 +22,7 @@
     <input type="text" name="email" placeholder="Email">
     <input type="text" name="phone" placeholder="Phone">
     <input type="submit" value="Add Board">
-</form>
+  </form>
 </template>
 
 <template name="imageUpload">
