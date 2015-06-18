@@ -3,7 +3,7 @@ PlayersList = new Mongo.Collection('players');
 Template.addPlayerForm.events({
   'submit form': function(e,t){
 
-    dropzone.processQueue();
+  dropzone.processQueue();
 
    event.preventDefault();
    var brandNameVar = event.target.brandName.value;
@@ -42,21 +42,22 @@ Template.imageUpload.onRendered(function(){
   var arrayOfImageIds = [];
 
   Dropzone.options.autoDiscover = false;
-  Dropzone.options.autoProcessQueue = false;
 
   dropzone = new Dropzone("form#dropzone", {
     autoDiscover: false,
     autoProcessQueue: false,
-    accept: function(file, done){
+    success: function(file, done){
       Images.insert(file, function(err, file){
         if(err){
-          alert("Error");
+          console.log("Error");
         } else {
-          var imageId = file._id;
-          arrayOfImageIds.push(imageId);
-          done();
+          console.log("Success");
         };
       });
+
+      if(dropzone.getQueuedFiles().length === 0){
+        dropzone.removeAllFiles();
+      }
     }
   });
 
