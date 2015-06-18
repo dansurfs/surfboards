@@ -1,5 +1,3 @@
-PlayersList = new Mongo.Collection('players');
-
 Template.addPlayerForm.events({
   'submit form': function(e,t){
 
