@@ -71,11 +71,3 @@ Template.dropzone.events({
 }); 
 
 } 
-
-if(Meteor.isServer){
-    // this code only runs on the server
-}
-
-
-
-
