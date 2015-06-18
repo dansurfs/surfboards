@@ -5,7 +5,8 @@
     <h1>Upload My Surfboard</h1>
     {{> leaderboard}}
     {{> addPlayerForm}}
-    {{> dropzone url='http://localhost:3000/uploads' id='dropzoneDiv'}}
+    
+    {{>imageUpload}}
 </body>
 
 <template name="leaderboard">
@@ -30,11 +31,8 @@
 </form>
 </template>
 
-
-<template name="whynot">
-    <form action="http://localhost:3000/uploads" class="dropzone" method="post" enctype= multipart/form-data id="DropzoneDiv"> 
-    </form>
+<template name="imageUpload">
+  <form action="/file-upload" class="dropzone" id="dropzone"></form>
 </template>
-
 
 
