@@ -23,19 +23,6 @@ Template.addPlayerForm.events({
    var emailVar = event.target.email.value;
    var phoneVar = event.target.phone.value;
 
-   console.log("brandName " + brandNameVar);
-   console.log(modelNameVar);
-   console.log(heightVar);
-   console.log(widthVar);
-   console.log(thicknessVar);
-   console.log(boardTypeVar);
-   console.log(tailTypeVar);
-   console.log(finSetupVar);
-   console.log(finSystemVar);
-   console.log(locationVar);
-   console.log(emailVar);
-   console.log(phoneVar);
-
    PlayersList.insert({
     brandName: brandNameVar,
     modelName: modelNameVar,
@@ -49,7 +36,6 @@ Template.addPlayerForm.events({
     location: locationVar,
     email: emailVar,
     phone:  phoneVar
-
   });
  }
 });
