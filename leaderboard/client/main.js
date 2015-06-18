@@ -1,9 +1,5 @@
 PlayersList = new Mongo.Collection('players');
 
-Images = new FS.Collection("myImages", {
-  stores: [new FS.Store.FileSystem("myImages", {path: "~/uploads"})]
-});
-
 Template.leaderboard.helpers({
   'player': function(){
     return PlayersList.find()
@@ -53,7 +49,7 @@ Template.addPlayerForm.events({
     location: locationVar,
     email: emailVar,
     phone:  phoneVar
-    
+
   });
  }
 });
